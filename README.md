@@ -1,2 +1,2 @@
 # RestfulAPI
- 
+For education only!
