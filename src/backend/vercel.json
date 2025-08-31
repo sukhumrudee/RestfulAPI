@@ -3,6 +3,6 @@
     { "src": "src/backend/index.ts", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "src/backend/index.ts" }
+    { "src": "/(.*)", "dest": "src/backend/index.ts" }
   ]
 }
