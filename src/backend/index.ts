@@ -24,22 +24,34 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
 const app = new Hono()
 
-// ตั้ง CORS ให้ยืดหยุ่น (ดึงจาก ENV เมื่อ deploy)
-const ORIGIN = process.env.FRONTEND_ORIGIN ?? 'http://localhost:5173'
+// CORS — อนุญาตเฉพาะ origin ที่กำหนด แล้วสะท้อนกลับไปให้ตรง
+const ALLOWED = new Set([
+  'http://localhost:5173',
+  'https://<YOUR_FRONTEND>.vercel.app', // ใส่โดเมน frontend จริงของคุณ
+])
+
 app.use('/api/*', async (c, next) => {
-  c.header('Access-Control-Allow-Origin', ORIGIN)
-  c.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, OPTIONS, DELETE')
+  const origin = c.req.header('origin') ?? ''
+
+  if (ALLOWED.has(origin)) {
+    c.header('Access-Control-Allow-Origin', origin)
+    c.header('Access-Control-Allow-Credentials', 'true') // ถ้าไม่ใช้คุกกี้จะลบบรรทัดนี้ได้
+  }
+
+  c.header('Vary', 'Origin')
+  c.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
   c.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-  c.header('Access-Control-Allow-Credentials', 'true')
-  if (c.req.method === 'OPTIONS') return c.text('OK', 200)
+
+  if (c.req.method === 'OPTIONS') return c.body(null, 204)
   await next()
 })
+
 
 // รวม route ไว้ที่เดียว (อย่าซ้ำซ้อนกับ app.get('/api/books') ตรง ๆ)
 app.route('/api/books', booksApi)
 app.route('/api/menu', menuApi)
 app.route('/api/orders', ordersApi)
-
+  
 // --- สำหรับ Vercel ---
 export const config = { runtime: 'nodejs' } // Prisma ต้อง nodejs runtime
 export default handle(app)
