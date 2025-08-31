@@ -78,7 +78,7 @@ const MenuPage = () => {
 
   return (
     <div className="drink-menu-section">
-      <h2>Drinks</h2>
+      <h2>เมนูเครื่องดื่ม</h2>
       <div className="drink-menu-items">
         {menuItems.map(item => (
           <div className="drink-menu-item" key={item.id}>
