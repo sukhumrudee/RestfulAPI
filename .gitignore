@@ -1,0 +1,17 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+.DS_*
+.log
+logs
+**/.backup.*
+*/.back.*
+
+node_modules
+bower_components
+
+.sublime
+
+psd
+thumb
+sketch
+.env

@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Book {
+  id          Int     @id @default(autoincrement())
+  title       String  @db.VarChar(255)
+  description String? @db.Text
+  category    String? @db.VarChar(100)
+  author      String? @db.VarChar(255)
+}
+
+model Drink {
+  id     Int     @id @default(autoincrement())
+  name   String  @db.VarChar(255)
+  price  String  @db.VarChar(50)
+  orders Order[] // relation One-to-Many
+}
+
+model Order {
+  id       Int     @id @default(autoincrement())
+  drinkId  Int
+  quantity Int
+  note     String? @db.Text
+  status   String? @db.VarChar(50) // Pending, Confirmed
+  drink    Drink   @relation(fields: [drinkId], references: [id])
+}

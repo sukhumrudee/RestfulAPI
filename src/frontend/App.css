@@ -1,0 +1,405 @@
+/* ใช้ฟอนต์จาก Google Fonts */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;  /* สีพื้นหลังอ่อน */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* เพื่อให้เนื้อหามีการเรียงต่อจาก Navbar */
+  min-height: 100vh;  /* ความสูงเต็มหน้าจอ */
+}
+
+/* สไตล์ของ navbar */
+nav {
+  position: fixed; /* ทำให้ navbar อยู่ที่ตำแหน่งบนสุด */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #6a4e23;
+  padding: 15px 0;
+  z-index: 10;  /* ให้ Navbar อยู่บนสุด */
+}
+
+nav a {
+  font-size: 18px;
+  color: white;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #f1c27d;  /* สีทองเมื่อ hover */
+  border-bottom: 2px solid #f1c27d;
+}
+
+/* การตั้งค่าการ์ดแสดงข้อมูลส่วนตัว */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* การตั้งค่าการ์ดแสดงข้อมูลส่วนตัว */
+.profile-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+}
+
+.profile-info h2 {
+  font-size: 24px;
+  color: #6a4e23;  /* สีสีน้ำตาลเข้ม */
+  margin: 10px 0;
+}
+
+.profile-info p {
+  font-size: 18px;
+  color: #4d4d4d;  /* สีเทา */
+  margin: 5px 0;
+}
+
+.profile-info p strong {
+  color: #6a4e23;  /* สีน้ำตาลเข้ม */
+}
+
+/* เมนูเครื่องดื่ม */
+.menu-section, .drink-menu-section {
+  background-color: #ffffff;
+}
+.menu-section {
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์ */
+  gap: 25px;
+  margin-top: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.menu-item-img:hover {
+  transform: scale(1.05);
+}
+
+.menu-item-info h3 {
+  font-size: 20px;
+  color: #6a4e23;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.menu-item-info p {
+  font-size: 15px;
+  color: #4d4d4d;
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+.menu-item-info .price {
+  font-size: 17px;
+  font-weight: bold;
+  color: #f1c27d;
+  margin-top: 8px;
+}
+
+.menu-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.menu-actions button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.menu-actions button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+/* การจัดตำแหน่งและปรับแต่งการแสดงผลต่างๆ */
+.content {
+  margin-top: 80px; /* เพื่อให้เนื้อหาไม่ไปทับกับ Navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);  /* ทำให้เนื้อหาตรงกลางในแนวตั้ง */
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  color: #6a4e23;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #4d4d4d;
+}
+
+/* ฟอร์มต่างๆ */
+form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+label {
+  font-size: 18px;
+  color: #6a4e23;
+  display: block;
+  margin-bottom: 8px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select {
+  background-color: #fafafa;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul li p {
+  margin: 5px 0;
+}
+
+/* สไตล์ของตารางรายการคำสั่งซื้อ */
+
+/* ฟอร์มการเข้าสู่ระบบของ Staff */
+input {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #6a4e23;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f1c27d;  /* สีทองเมื่อ hover */
+}
+
+/* การจัดเรียงปุ่มเข้าสู่ระบบและออกจากระบบให้ข้างกัน */
+button + button {
+  margin-left: 10px;
+}
+
+/* สไตล์สำหรับแสดงคำว่า "ยินดีต้อนรับ" */
+h2 {
+  font-size: 24px;
+  color: #6a4e23;
+  margin-top: 20px;
+}
+/* ========== เมนูเครื่องดื่ม ========== */
+.quantity-container {
+  display: flex;          
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.note {
+  display: block;         
+  width: 100%;
+  margin: 8px 0;          
+  padding: 4px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.drink-menu-section {
+  margin-top: 120px;
+  text-align: center;
+  padding: 20px;
+}
+
+.drink-menu-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ */
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.drink-menu-item {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.drink-menu-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.drink-menu-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.drink-menu-info h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #6a4e23;
+  margin-bottom: 8px;
+}
+
+.drink-menu-info p {
+  font-size: 16px;
+  color: #4d4d4d;
+  margin: 5px 0;
+}
+
+.drink-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f1c27d;
+}
+
+.drink-menu-item button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* ========== หน้า Books ========== */
+.books-section {
+  margin-top: 120px;
+  text-align: center;
+  padding: 20px;
+}
+
+.book-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.book-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.book-card h3 {
+  font-size: 20px;
+  color: #6a4e23;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  font-size: 16px;
+  color: #4d4d4d;
+}
