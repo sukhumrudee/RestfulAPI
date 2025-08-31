@@ -27,7 +27,7 @@ const app = new Hono()
 // CORS — อนุญาตเฉพาะ origin ที่กำหนด แล้วสะท้อนกลับไปให้ตรง
 const ALLOWED = new Set([
   'http://localhost:5173',
-  'https://restful-api-frontend-nu.vercel.app/', // ใส่โดเมน frontend จริงของคุณ
+  'https://restful-api-frontend-nu.vercel.app', // ใส่โดเมน frontend จริงของคุณ
 ])
 
 app.use('/api/*', async (c, next) => {
