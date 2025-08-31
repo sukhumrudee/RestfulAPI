@@ -5,7 +5,9 @@
     "dev": "concurrently \"tsx watch src/backend/index.ts\" \"vite\"",
     "vercel:dev": "vercel dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "prisma generate",
+    "migrate": "prisma migrate deploy"
   },
   "dependencies": {
     "@hono/node-server": "^1.16.0",
