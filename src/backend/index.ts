@@ -7,8 +7,7 @@ import booksApi from './api/bookapi';
 import menuApi from './api/menuapi';
 import ordersApi from './api/orderapi';
 
-dotenv.config();
-
+dotenv.config({ path: "./src/backend/.env" });
 const app = new Hono();
 const prisma = new PrismaClient();
 
